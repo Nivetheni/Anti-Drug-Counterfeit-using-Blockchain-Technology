@@ -1,0 +1,179 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Drug Traceability Demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Drug Traceability Demo</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/patientsdashboard">Dashboard</a></li>
+        <li><a href="/giveFeedback">Give Feedback</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Patients Dashboard</h2> <br />
+    <h3 style="text-align:center;color:rebeccapurple">Medical Consultation List</h3> <br /><br />
+    <div class="table-responsive-sm">
+      <table class="table table-bordered">
+        <tr>
+          <th>Researched By</th>
+          <th>Manufactured By</th>
+          <th>From Warehouse 1</th>
+          <th>Transported By</th>
+          <th>From Warehouse 2</th>
+          <th>Consultation By</th>
+          <th>Medicine Name</th>
+          <th>Pill Count</th>
+          <th>Amount to be Paid</th>
+        </tr>
+        {%for i in range(0, len)%}
+        <tr>
+          <td>{{dashboard_data[0][0]}}</td>
+          <td>{{dashboard_data[0][1]}}</td>
+          <td>{{dashboard_data[0][2]}}</td>
+          <td>{{dashboard_data[0][3]}}</td>
+          <td>{{dashboard_data[0][4]}}</td>
+          <td>{{dashboard_data[0][5]}}</td>
+          <td>{{dashboard_data[0][6]}}</td>
+          <td>{{dashboard_data[0][7]}}</td>
+          <td>10</td>
+        </tr>
+        {%endfor%}
+      </table>
+    </div>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Drug Traceability Demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    .form-group{
+      display: block;
+      margin-bottom: 30px;
+    }
+    .qrscan {
+      display: block;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Drug Traceability Demo</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/patientsdashboard">Dashboard</a></li>
+        <li><a href="/giveFeedback">Give Feedback</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Patients Dashboard</h2> <br />
+    <h3 style="text-align:center;color:rebeccapurple">Medical Consultation List</h3> <br /><br />
+    <div class="table-responsive-sm">
+      <div class="form-group" style="text-align: center">
+        <label for="sel1">Select your Medicine:</label>
+        <select class="form-control" id="medicine" name='role' onblur='generateBarCode();'>
+          <option value="1">Crocin</option>
+          <option value="2">Paracetamol</option>
+        </select>
+
+        <div class="qrscan">
+          <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt=""
+            title="MEDICINE" width="200" height="200" />
+        </div>
+
+      </div>
+      <!-- <table class="table table-bordered">
+        <tr>
+          <th>Researched By</th>
+          <th>Manufactured By</th>
+          <th>From Warehouse 1</th>
+          <th>Transported By</th>
+          <th>From Warehouse 2</th>
+          <th>Consultation By</th>
+          <th>Medicine Name</th>
+          <th>Pill Count</th>
+          <th>Amount to be Paid</th>
+        </tr>
+        {%for i in range(0, len)%}
+        <tr>
+          <td>{{dashboard_data[i][0]}}</td>
+          <td>{{dashboard_data[i][1]}}</td>
+          <td>CIT Warehouse 1</td>
+          <td>CIT Transport</td>
+          <td>CIT Warehouse 2</td>
+          <td>{{dashboard_data[i][5]}}</td>
+          <td>{{dashboard_data[i][6]}}</td>
+          <td>{{dashboard_data[i][7]}}</td>
+          <td>10</td>
+        </tr>
+        {%endfor%}
+    </table> -->
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    function generateBarCode() {
+      var nric = $('#medicine option:selected').text();
+      if (nric == 'Crocin') {
+        var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + " Researched By: " + 'CIT Labs\n' + 
+        "Manufactured By:" + 'CIT Manufacturer 1\n' + 
+        "From Warehouse 1:" + "CIT Warehouse 1\n" + 
+        "Transported By:" + "CIT Transport\n" + 
+        "From Warehouse 2:" + "CIT Warehouse 2\n" + 
+        "Consultation By:" + 'CIT Hospital\n' + 
+        "Medicine Name:" + 'Crocin\n' + 
+        "Pill Count:150\n" + 
+        "Price: 10 ETH\n" + '&amp;size=50x50';
+        $('#barcode').attr('src', url);
+      }
+      if (nric == 'Paracetamol') {
+        var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + " Researched By: " + 'CIT Labs' + '\t' + "Manufactured By:" + 'CIT Manufacturer 1' + '\t' + "From Warehouse 1:" + "CIT Warehouse 1" + '\t' + "Transported By:" + "CIT Transport" + '\t' + "From Warehouse 2:" + "CIT Warehouse 2" + '\t' + "Consultation By:" + 'CIT Retailer' + '\t' + "Medicine Name:" + 'Paracetomol' + '\t' + "Pill Count:" + 250 + '\t' + "Price: 50 ETH" + '&amp;size=50x50';
+        $('#barcode').attr('src', url);
+      }
+    }
+  </script>
+
+</body>
+
+</html>
